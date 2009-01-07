@@ -129,7 +129,7 @@ There are three callbacks you can specify directly as methods:
 
 
 
-== Block of Code Run for Draft Class
+== Extending the Draft Class
 
 Because you don't directly define the draft class, you can specify a block of code to be run in its
 context by passing a block to has_draft:
