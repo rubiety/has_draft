@@ -16,6 +16,11 @@ just as before without having to apply conditions in queries to make sure you ar
 a model created on the fly as a constant on the original model class.  For example if a Page has_draft, 
 a Page::Draft class will exist as the model for the page_drafts table.
 
+== Installation
+  
+  # In environment.rb
+  config.gem 'railsgarden-has_draft', :lib => 'has_draft', :source => 'http://gems.github.com'
+
 == Basic Example
   
   ## First Migration (If Creating base model and drafts at the same time):
