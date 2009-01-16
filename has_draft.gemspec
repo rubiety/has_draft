@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = %q{Allows for your ActiveRecord models to have drafts which are stored in a separate duplicate table.}
   s.email = %q{ben@railsgarden.com}
   s.extra_rdoc_files = ["CHANGELOG", "lib/has_draft.rb", "README.rdoc", "tasks/has_draft_tasks.rake"]
-  s.files = ["CHANGELOG", "has_draft_plugin.sqlite3", "init.rb", "install.rb", "lib/has_draft.rb", "Manifest", "MIT-LICENSE", "Rakefile", "README.rdoc", "tasks/has_draft_tasks.rake", "test/config/database.yml", "test/fixtures/article_drafts.yml", "test/fixtures/articles.yml", "test/has_draft_test.rb", "test/models/article.rb", "test/schema.rb", "test/test_helper.rb", "uninstall.rb", "has_draft.gemspec"]
+  s.files = ["CHANGELOG", "has_draft.gemspec", "init.rb", "install.rb", "lib/has_draft.rb", "Manifest", "MIT-LICENSE", "Rakefile", "README.rdoc", "tasks/has_draft_tasks.rake", "test/config/database.yml", "test/fixtures/article_drafts.yml", "test/fixtures/articles.yml", "test/has_draft_test.rb", "test/models/article.rb", "test/schema.rb", "test/test_helper.rb", "uninstall.rb"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/railsgarden/has_draft}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Has_draft", "--main", "README.rdoc"]
