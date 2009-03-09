@@ -24,7 +24,7 @@ Rake::RDocTask.new(:rdoc) do |rdoc|
 end
 
 
-Echoe.new('has_draft', '0.1.0') do |p|
+Echoe.new('has_draft', '0.1.1') do |p|
   p.description    = "Allows for your ActiveRecord models to have drafts which are stored in a separate duplicate table."
   p.url            = "http://github.com/railsgarden/has_draft"
   p.author         = "Ben Hughes"
