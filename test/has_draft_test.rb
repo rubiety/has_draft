@@ -1,7 +1,7 @@
 require File.join(File.dirname(__FILE__), 'test_helper')
 require File.join(File.dirname(__FILE__), 'models/article')
 
-class ArticleTest < Test::Unit::TestCase
+class ArticleTest < ActiveSupport::TestCase
   fixtures :articles, :article_drafts
   set_fixture_class :article_drafts => Article::Draft
   
