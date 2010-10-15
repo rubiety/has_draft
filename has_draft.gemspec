@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = HasDraft::VERSION
   s.author      = "Ben Hughes"
   s.email       = "ben@railsgarden.com"
-  s.homepage    = "http://github.com/rubiety/nilify_blanks"
+  s.homepage    = "http://github.com/rubiety/has_draft"
   s.summary     = "Attached draft model to your ActiveRecord models."
   s.description = "Allows for your ActiveRecord models to have drafts which are stored in a separate duplicate table."
   
