@@ -1,3 +1,5 @@
+== [2010-10-15] 1.0.1 Minor fix to homepage URL
+
 == [2010-10-15] 1.0.0 Major Updates
 
 * Finally updated to be a Gem
