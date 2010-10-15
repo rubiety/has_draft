@@ -5,11 +5,8 @@ Allows for multiple "drafts" of a model which can be useful when developing:
 * A workflow system whereby a live copy may need to be active while a draft copy is 
   awaiting approval.
 
-The semantics of this as well as most of the inspiration comes from version_fu, 
-an excellent plugin for a similar purpose of maintaining several "versions" of a model.
-
 This was built to be able to be tacked on to existing models, so the data schema doesn't need to change 
-at all for the model this is applied to.  As such, drafts are actually stored in a nearly-identical table 
+at all for the model this is applied to.  Drafts are actually stored in a nearly-identical table 
 and there is a has_one relationship to this.  This separation allows the base model to really be treated 
 just as before without having to apply conditions in queries to make sure you are really getting the 
 "live" (non-draft) copy: Page.all will still only return the non-draft pages.  This separate table is backed by 
@@ -17,9 +14,12 @@ a model created on the fly as a constant on the original model class.  For examp
 a Page::Draft class will exist as the model for the page_drafts table.
 
 == Installation
+
+This gem requires ActiveRecord 3.0.
+
+In your Gemfile:
   
-  # In environment.rb
-  config.gem 'railsgarden-has_draft', :lib => 'has_draft', :source => 'http://gems.github.com'
+  gem "has_draft"
 
 == Basic Example
   
@@ -152,7 +152,3 @@ context by passing a block to has_draft:
     end
     
   end
-
-
-
-Copyright (c) 2008 Ben Hughes, released under the MIT license
