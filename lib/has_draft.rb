@@ -20,8 +20,8 @@ module HasDraft
                         :foreign_key => draft_foreign_key,
                         :dependent => :destroy
         
-        named_scope :with_draft, :include => [:draft], :conditions => "#{draft_table_name}.id IS NOT NULL"
-        named_scope :without_draft, :include => [:draft], :conditions => "#{draft_table_name}.id IS NULL"
+        scope :with_draft, includes(:draft).where("#{draft_table_name}.id IS NOT NULL")
+        scope :without_draft, includes(:draft).where("#{draft_table_name}.id IS NULL")
       end
       
       # Dynamically Create Model::Draft Class
@@ -62,16 +62,16 @@ module HasDraft
     end
     
     def instantiate_draft
-      self.draft = self.build_draft
+      self.build_draft
       
       copy_attributes_to_draft
       before_instantiate_draft
       
-      self.draft
+      self.draft.tap(&:save)
     end
     
     def instantiate_draft!
-      returning instantiate_draft do |draft|
+      instantiate_draft do |draft|
         draft.save unless self.new_record?
       end
     end

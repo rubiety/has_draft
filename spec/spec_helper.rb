@@ -2,7 +2,6 @@ require "rubygems"
 require "rspec"
 require "factory_girl"
 require "faker"
-require "rails"
 require "active_record"
 require "active_support"
 
