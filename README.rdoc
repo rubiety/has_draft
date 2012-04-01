@@ -1,3 +1,5 @@
+{<img src="https://secure.travis-ci.org/rubiety/has_draft.png?branch=master" alt="Build Status" />}[http://travis-ci.org/rubiety/has_draft]
+
 == Has Draft
 
 Allows for multiple "drafts" of a model which can be useful when developing:
