@@ -20,7 +20,7 @@ describe HasDraft do
     
     describe "Draft Model" do
       it "should be defined under the Article namespace" do
-        Article.constants.should include('Draft')
+        Article.constants.map(&:to_s).should include('Draft')
       end
       
       it "should expose #original_class as Article" do
