@@ -23,4 +23,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency("factory_girl", ["~> 1.3.1"])
   s.add_development_dependency("faker", ["~> 0.9.1"])
   s.add_development_dependency("sqlite3-ruby", ["~> 1.3.1"])
+  s.add_development_dependency "rake"
 end
