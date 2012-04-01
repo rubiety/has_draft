@@ -152,3 +152,12 @@ context by passing a block to has_draft:
     end
     
   end
+
+== Running Tests
+
+  # Just the gems locked in Gemfile.lock
+  $ bundle exec rake test
+
+  # All of the Appraisals:
+  $ bundle exec rake all
+
