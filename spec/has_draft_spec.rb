@@ -1,6 +1,10 @@
 require "spec_helper"
 
 describe HasDraft do
+  before(:all) do
+    ActiveSupport::Deprecation.silenced = true
+  end
+
   context "Model with has_draft" do
     it "should expose #draft_class_name as Draft" do
       Article.draft_class_name.should == "Draft"
