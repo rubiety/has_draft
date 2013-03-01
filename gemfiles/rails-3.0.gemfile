@@ -3,6 +3,5 @@
 source "http://rubygems.org"
 
 gem "rails", "~> 3.0.12"
-gem "has_draft", :path=>"../"
 
 gemspec :path=>"../"
