@@ -20,8 +20,8 @@ module HasDraft
                         :foreign_key => draft_foreign_key,
                         :dependent => :destroy
         
-        scope :with_draft, includes(:draft).where("#{draft_table_name}.id IS NOT NULL")
-        scope :without_draft, includes(:draft).where("#{draft_table_name}.id IS NULL")
+        scope :with_draft, lambda { includes(:draft).where("#{draft_table_name}.id IS NOT NULL") }
+        scope :without_draft, lambda { includes(:draft).where("#{draft_table_name}.id IS NULL") }
       end
       
       # Dynamically Create Model::Draft Class
@@ -29,7 +29,7 @@ module HasDraft
       
       draft_class.cattr_accessor :original_class
       draft_class.original_class = self
-      draft_class.set_table_name(draft_table_name)
+      draft_class.table_name = draft_table_name
       
       # Draft Parent Association
       draft_class.belongs_to self.to_s.demodulize.underscore.to_sym, :class_name  => "::#{self.to_s}", :foreign_key => draft_foreign_key
