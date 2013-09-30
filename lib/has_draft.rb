@@ -23,9 +23,14 @@ module HasDraft
         scope :with_draft, lambda { includes(:draft).where("#{draft_table_name}.id IS NOT NULL") }
         scope :without_draft, lambda { includes(:draft).where("#{draft_table_name}.id IS NULL") }
       end
-      
+
+      options[:extends] = self if options[:extends_self]
+
+      # Default parent class to ActiveRecord::Base
+      options[:extends] = ActiveRecord::Base if options[:extends].nil?
+
       # Dynamically Create Model::Draft Class
-      const_set(draft_class_name, Class.new(ActiveRecord::Base))
+      const_set(draft_class_name, Class.new(options[:extends]))
       
       draft_class.cattr_accessor :original_class
       draft_class.original_class = self
