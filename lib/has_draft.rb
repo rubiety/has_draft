@@ -30,9 +30,12 @@ module HasDraft
       draft_class.cattr_accessor :original_class
       draft_class.original_class = self
       draft_class.table_name = draft_table_name
-      
+
+      # Default parent association
+      options[:belongs_to] = self.to_s.demodulize.underscore.to_sym if options[:belongs_to].nil?
+
       # Draft Parent Association
-      draft_class.belongs_to self.to_s.demodulize.underscore.to_sym, :class_name  => "::#{self.to_s}", :foreign_key => draft_foreign_key
+      draft_class.belongs_to options[:belongs_to], :class_name  => "::#{self.to_s}", :foreign_key => draft_foreign_key
       
       # Block extension
       draft_class.class_eval(&block) if block_given?
