@@ -27,7 +27,7 @@ end
 
 # Model for testing ability to have the draft extend a different class
 class BlogPost < Post
-  has_draft extends: Post, belongs_to: :post
+  has_draft :extends => Post, :belongs_to => :post
 end
 
 # Load Factories:

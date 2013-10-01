@@ -152,7 +152,7 @@ In your Gemfile:
   end
   
   class BlueElement < Element
-    has_draft belongs_to: :element, extends: Element::Draft do
+    has_draft :belongs_to => :element, :extends => Element::Draft do
       def element_icon_path
         'assets/images/blue.png'
       end
@@ -162,7 +162,7 @@ In your Gemfile:
   end
   
   class UnknownElement < Element
-    has_draft belongs_to: :element, extends: Element::Draft
+    has_draft :belongs_to => :element, :extends => Element::Draft
     
     include Element::HasDraftCallbacks
   end
