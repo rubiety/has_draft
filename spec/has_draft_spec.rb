@@ -89,10 +89,6 @@ describe HasDraft do
     it "the class passed in with the :extends option" do
       BlogPost::Draft.superclass.should == Post
     end
-
-    it "self if the :extends_self option is true" do
-      Page::Draft.superclass.should == Page
-    end
   end
 
   context "Draft class belongs to" do

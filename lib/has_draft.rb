@@ -24,8 +24,6 @@ module HasDraft
         scope :without_draft, lambda { includes(:draft).where("#{draft_table_name}.id IS NULL") }
       end
 
-      options[:extends] = self if options[:extends_self]
-
       # Default parent class to ActiveRecord::Base
       options[:extends] = ActiveRecord::Base if options[:extends].nil?
 

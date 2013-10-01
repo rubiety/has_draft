@@ -30,10 +30,5 @@ class BlogPost < Post
   has_draft extends: Post, belongs_to: :post
 end
 
-# Model for testing the :extends_self parameter
-class Page < ActiveRecord::Base
-  has_draft extends_self: true
-end
-
 # Load Factories:
 Dir[File.join(File.dirname(__FILE__), "factories/**/*.rb")].each {|f| require f}
