@@ -115,6 +115,64 @@ In your Gemfile:
   class Article < ActiveRecord::Base
     has_draft :class_name => 'Copy', :foreign_key => :news_article_id, :table_name => 'article_copies'
   end
+  
+  ## Single Table Inheritance Example
+  class InitialSchema < ActiveRecord::Migration
+  
+    [:elements, :element_drafts].each do |table_name|
+      create_table table_name, :force => true do |t|
+        t.integer :element_id if table_name == :element_drafts
+      
+        t.string :title
+        t.text :content
+        t.string :type
+      end
+    end
+    
+  end
+  
+  class Element < ActiveRecord::Base
+    class Draft < ActiveRecord::Base
+      def element_icon_path
+        'assets/images/default.png'
+      end
+    end
+    
+    module HasDraftCallbacks
+      def before_instantiate_draft
+        # Need to append ::Draft so that it knows to use the Draft class
+        self.draft.type = self.type + '::Draft'
+      end
+  		
+      def before_replace_with_draft
+        # We are storing drafts with the ::Draft on the end so we have to strip it
+        self.type = self.draft.type.split(':')[0]
+      end
+    end
+  end
+  
+  class BlueElement < Element
+    has_draft belongs_to: :element, extends: Element::Draft do
+      def element_icon_path
+        'assets/images/blue.png'
+      end
+    end
+    
+    include Element::HasDraftCallbacks
+  end
+  
+  class UnknownElement < Element
+    has_draft belongs_to: :element, extends: Element::Draft
+    
+    include Element::HasDraftCallbacks
+  end
+  
+  This allows us to call element_draft.element on any subclass of Element::Draft
+  instead of needing to know to call element_draft.blue_element or element_draft.unknown_element.
+  
+  Note: calling has_draft will have no effect if the parent class has already executed has_draft. 
+    
+  
 
 == Method Callbacks
 
