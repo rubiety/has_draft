@@ -79,5 +79,27 @@ describe HasDraft do
       end
     end
   end
+
+  context "Draft class extends" do
+
+    it "ActiveRecord::Base when no options are passed" do
+      Article::Draft.superclass.should == ActiveRecord::Base
+    end
+
+    it "the class passed in with the :extends option" do
+      BlogPost::Draft.superclass.should == Post
+    end
+  end
+
+  context "Draft class belongs to" do
+
+    it "self when :belongs_to is not specified" do
+      Article::Draft.reflect_on_association(:article).macro.should == :belongs_to
+    end
+
+    it "the model passed in with the :belongs_to option" do
+      BlogPost::Draft.reflect_on_association(:post).macro.should == :belongs_to
+    end
+  end
   
 end
