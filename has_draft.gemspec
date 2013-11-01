@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = "http://github.com/rubiety/has_draft"
   s.summary     = "Attached draft model to your ActiveRecord models."
   s.description = "Allows for your ActiveRecord models to have drafts which are stored in a separate duplicate table."
+  s.license     = "MIT"
   
   s.files        = Dir["{lib,spec}/**/*", "[A-Z]*", "init.rb"]
   s.require_path = "lib"
