@@ -223,5 +223,5 @@ This gem uses appraisal to test with different versions of the dependencies. See
   $ bundle exec rake test
 
   # All of the Appraisals:
-  $ bundle exec rake all
+  $ bundle exec appraisal rake test
 
