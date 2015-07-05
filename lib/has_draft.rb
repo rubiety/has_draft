@@ -20,8 +20,8 @@ module HasDraft
                         :foreign_key => draft_foreign_key,
                         :dependent => :destroy
         
-        scope :with_draft, lambda { includes(:draft).where("#{draft_table_name}.id IS NOT NULL") }
-        scope :without_draft, lambda { includes(:draft).where("#{draft_table_name}.id IS NULL") }
+        scope :with_draft, lambda { includes(:draft).where("#{draft_table_name}.id IS NOT NULL").references(draft_table_name) }
+        scope :without_draft, lambda { includes(:draft).where("#{draft_table_name}.id IS NULL").references(draft_table_name) }
       end
 
       # Default parent class to ActiveRecord::Base

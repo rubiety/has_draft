@@ -22,6 +22,11 @@ describe HasDraft do
       Article.draft_table_name.should == "article_drafts"
     end
     
+    it "should expose #with_draft and #without_draft scopes" do
+      expect { Article.with_draft.to_a }.to_not raise_error
+      expect { Article.without_draft.to_a }.to_not raise_error
+    end
+    
     describe "Draft Model" do
       it "should be defined under the Article namespace" do
         Article.constants.map(&:to_s).should include('Draft')
