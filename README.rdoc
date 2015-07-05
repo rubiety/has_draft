@@ -19,8 +19,6 @@ a Page::Draft class will exist as the model for the page_drafts table.
 
 == Installation
 
-This gem requires ActiveRecord 3.0.
-
 In your Gemfile:
   
   gem "has_draft"
@@ -223,5 +221,5 @@ This gem uses appraisal to test with different versions of the dependencies. See
   $ bundle exec rake test
 
   # All of the Appraisals:
-  $ bundle exec rake all
+  $ bundle exec appraisal rake test
 
