@@ -1,6 +1,6 @@
-{<img src="https://secure.travis-ci.org/rubiety/has_draft.png?branch=master" alt="Build Status" />}[http://travis-ci.org/rubiety/has_draft]
-{<img src="https://gemnasium.com/rubiety/has_draft.png" alt="Dependency Status" />}[https://gemnasium.com/rubiety/has_draft]
-{<img src="https://codeclimate.com/github/rubiety/has_draft.png" />}[https://codeclimate.com/github/rubiety/has_draft]
+{<img src="https://secure.travis-ci.org/rubiety/has_draft.svg?branch=master" alt="Build Status" />}[http://travis-ci.org/rubiety/has_draft]
+{<img src="https://gemnasium.com/rubiety/has_draft.svg" alt="Dependency Status" />}[https://gemnasium.com/rubiety/has_draft]
+{<img src="https://codeclimate.com/github/rubiety/has_draft.svg" />}[https://codeclimate.com/github/rubiety/has_draft]
 
 == Has Draft
 
