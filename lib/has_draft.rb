@@ -13,13 +13,17 @@ module HasDraft
       self.draft_class_name = options[:class_name]  || 'Draft'
       self.draft_foreign_key = options[:foreign_key] || self.to_s.foreign_key
       self.draft_table_name = options[:table_name]  || "#{table_name_prefix}#{base_class.name.demodulize.underscore}_drafts#{table_name_suffix}"
-      
+
+      # Default parent association
+      options[:belongs_to] = self.to_s.demodulize.underscore.to_sym if options[:belongs_to].nil?
+
       # Create Relationship to Draft Copy
       class_eval do
         has_one :draft, :class_name => "#{self.to_s}::#{draft_class_name}",
                         :foreign_key => draft_foreign_key,
-                        :dependent => :destroy
-        
+                        :dependent => :destroy,
+                        :inverse_of => options[:belongs_to]
+
         scope :with_draft, lambda { includes(:draft).where("#{draft_table_name}.id IS NOT NULL") }
         scope :without_draft, lambda { includes(:draft).where("#{draft_table_name}.id IS NULL") }
       end
@@ -34,12 +38,9 @@ module HasDraft
       draft_class.original_class = self
       draft_class.table_name = draft_table_name
 
-      # Default parent association
-      options[:belongs_to] = self.to_s.demodulize.underscore.to_sym if options[:belongs_to].nil?
-
       # Draft Parent Association
-      draft_class.belongs_to options[:belongs_to], :class_name  => "::#{self.to_s}", :foreign_key => draft_foreign_key
-      
+      draft_class.belongs_to options[:belongs_to], :class_name  => "::#{self.to_s}", :foreign_key => draft_foreign_key, :inverse_of => :draft
+
       # Block extension
       draft_class.class_eval(&block) if block_given?
       
