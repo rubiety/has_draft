@@ -4,10 +4,12 @@ end
 
 appraise "3.1" do
   gem "rails", "~> 3.1.4"
+  gem "i18n", "~> 0.6.0"
 end
 
 appraise "3.2" do
   gem "rails", "~> 3.2.2"
+  gem "i18n", "~> 0.6.0"
 end
 
 appraise "4.0" do
