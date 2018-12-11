@@ -49,6 +49,12 @@ describe HasDraft do
           @article.send(column).should == @article.draft.send(column)
         end
       end
+
+      it "should set the associations as inverses of each other" do
+        @article.draft.article.should be @article
+        article_draft = Article::Draft.find(@article.draft.id)
+        article_draft.article.draft.should be article_draft
+      end
     end
     
     context "when destroying an existing draft" do
