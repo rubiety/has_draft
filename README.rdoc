@@ -19,7 +19,7 @@ a Page::Draft class will exist as the model for the page_drafts table.
 
 == Installation
 
-This gem requires ActiveRecord 3.0.
+This gem supports ActiveRecord 3, 4, and 5.
 
 In your Gemfile:
   
