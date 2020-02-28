@@ -24,5 +24,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency("faker", ["~> 0.9.1"])
   s.add_development_dependency("sqlite3", ["~> 1.3.4"])
   s.add_development_dependency("appraisal", ["~> 0.4.0"])
-  s.add_development_dependency("rake", ["~> 10.1.0"])
+  s.add_development_dependency("rake", "~> 13.0.1")
 end
